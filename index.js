@@ -205,8 +205,8 @@ module.exports = {
   /**
    * Need to handroll our own clone algorithm since JSON.stringy changes regex
    * to empty objects which breaks hostWhiteList property of fastboot.
-   * 
-   * @param {Object} config 
+   *
+   * @param {Object} config
    */
   _cloneConfigObject(config) {
     if (config === null || typeof config !== 'object') {
@@ -271,6 +271,10 @@ module.exports = {
     let emberCliVersion = this._getEmberCliVersion();
     let app = options.app;
 
+    let env = this.app.env;
+    let appConfig = this._cloneConfigObject(this.project.config(env));
+    let fastbootConfig = appConfig.fastboot;
+
     if (emberCliVersion.gte('2.12.0-beta.1')) {
       // only run the middleware when ember-cli version for app is above 2.12.0-beta.1 since
       // that version contains API to hook fastboot into ember-cli
@@ -293,6 +297,7 @@ module.exports = {
           }
 
           let fastbootMiddleware = FastBootExpressMiddleware({
+            onVisit: fastbootConfig.onVisit,
             fastboot: this.fastboot
           });
 
