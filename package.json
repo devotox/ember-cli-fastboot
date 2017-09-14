@@ -35,15 +35,15 @@
     "silent-error": "^1.0.0"
   },
   "devDependencies": {
-    "body-parser": "1.17.2",
+    "body-parser": "^1.18.1",
     "broccoli-asset-rev": "^2.4.5",
     "broccoli-test-helper": "^1.1.0",
     "chai": "^4.1.0",
     "chai-fs": "^1.0.0",
     "co": "^4.6.0",
     "ember-ajax": "^3.0.0",
-    "ember-cli": "~2.14.2",
-    "ember-cli-addon-tests": "^0.9.0",
+    "ember-cli": "~2.15.1",
+    "ember-cli-addon-tests": "^0.10.0",
     "ember-cli-dependency-checker": "^2.0.1",
     "ember-cli-eslint": "^4.1.0",
     "ember-cli-htmlbars": "^2.0.2",
